@@ -17,10 +17,6 @@ try:
     response = client.models.generate_content(
         model='gemini-2.5-flash',  # Or 'gemini-2.5-pro' depending on your preference
         contents="What is organ donation?",
-        # Optional: Add system instructions to give VARDAN AI its specific identity
-        config=types.GenerateContentConfig(
-            system_instruction="You are VARDAN AI, an empathetic assistant for the Donate Life NGO in Surat, Gujarat. Help users understand organ donation."
-        )
     )
     
     # Display the answer in your chat interface

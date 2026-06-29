@@ -10,6 +10,7 @@ from website_loader import get_website_content
 # Load the environment variables from the .env file
 load_dotenv() 
 
+<<<<<<< HEAD
 api_key = st.secrets["GEMINI_API_KEY"]
 
 client = genai.Client(
@@ -20,6 +21,16 @@ client = genai.Client(
 st.write(response.text)
 
 answer = response.text
+=======
+# Fetch the key and configure the SDK
+api_key = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=api_key)
+   
+    
+    # Display the answer in your chat interface
+st.write(response.text)
+
+>>>>>>> 83649bf (Clean up code and securely untrack env file)
 
 website_data = get_website_content()
 SYSTEM_PROMPT = """

@@ -9,10 +9,17 @@ from website_loader import get_website_content
 
 load_dotenv()
 
-client = genai.Client(
-    api_key=st.secrets["GEMINI_API_KEY"]
-)
-    
+import os
+from dotenv import load_model  # or load_dotenv depending on your library
+import google.generativeai as genai
+
+# Load the environment variables from the .env file
+load_dotenv() 
+
+# Fetch the key and configure the SDK
+api_key = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=api_key)
+
 website_data = get_website_content()
 SYSTEM_PROMPT = """
 You are VARDAN AI.

@@ -10,7 +10,7 @@ from website_loader import get_website_content
 load_dotenv()
 
 client = genai.Client(
-    api_key=os.getenv("AQ.Ab8RN6JZWTCYyMg2lKO4qqYtNbBsDbXl1caRLyYhSlD3h2WCqA")
+    api_key=st.secrets["GEMINI_API_KEY"]
 )
 
 website_data = get_website_content()

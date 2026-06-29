@@ -12,18 +12,6 @@ load_dotenv()
 client = genai.Client(
     api_key=st.secrets["GEMINI_API_KEY"]
 )
-# 2. Example of generating a response for VARDAN AI
-try:
-    response = client.models.generate_content(
-        model='gemini-2.5-flash',  # Or 'gemini-2.5-pro' depending on your preference
-        contents="What is organ donation?",
-    )
-    
-    # Display the answer in your chat interface
-    st.write(response.text)
-
-except Exception as e:
-    st.error(f"An error occurred: {e}")
     
 website_data = get_website_content()
 SYSTEM_PROMPT = """

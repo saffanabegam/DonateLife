@@ -23,12 +23,19 @@ st.write(response.text)
 answer = response.text
 =======
 # Fetch the key and configure the SDK
-api_key = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key=api_key)
-   
+api_key = st.secrets["GEMINI_API_KEY"]
+
+client = genai.Client(
+    api_key=api_key
+)
     
     # Display the answer in your chat interface
-st.write(response.text)
+response = client.models.generate_content(
+    model="gemini-2.0-flash",
+    contents=user_input
+)
+
+answer = response.text
 
 >>>>>>> 83649bf (Clean up code and securely untrack env file)
 

@@ -10,9 +10,19 @@ from website_loader import get_website_content
 # Load the environment variables from the .env file
 load_dotenv() 
 
-# Fetch the key and configure the SDK
-api_key = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key=api_key)
+api_key = st.secrets["GEMINI_API_KEY"]
+
+client = genai.Client(
+    api_key=api_key
+)
+    
+    # Display the answer in your chat interface
+response = client.models.generate_content(
+    model="gemini-2.0-flash",
+    contents=user_input
+)
+
+answer = response.text
 
 website_data = get_website_content()
 SYSTEM_PROMPT = """

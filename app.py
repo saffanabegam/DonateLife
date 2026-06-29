@@ -223,7 +223,7 @@ if prompt:
     )
 
   answer = response.text
-  st.write(answer)
+st.write(answer)
 
     # Save user message
     st.session_state.messages.append(

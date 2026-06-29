@@ -213,17 +213,19 @@ for msg in st.session_state.messages:
 # User Input
 # -----------------
 
+# User Input
 prompt = st.chat_input(
     "Ask about organ donation..."
 )
+
 if prompt:
     response = client.models.generate_content(
         model="gemini-2.0-flash",
         contents=prompt
     )
 
-  answer = response.text
-st.write(answer)
+    answer = response.text
+    st.write(answer)
 
     # Save user message
     st.session_state.messages.append(

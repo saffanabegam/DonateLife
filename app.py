@@ -222,17 +222,13 @@ for msg in st.session_state.messages:
 prompt = st.chat_input(
     "Ask about organ donation..."
 )
-response = client.models.generate_content(
-    model="gemini-2.0-flash",
-    contents=user_input
-)
-<<<<<<< HEAD
-=======
-
-answer = response.text
-
->>>>>>> 649869d (fix genai client)
 if prompt:
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt
+    )
+
+    answer = response.text
 
     # Save user message
     st.session_state.messages.append(

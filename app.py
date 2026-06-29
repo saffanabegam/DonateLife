@@ -17,10 +17,7 @@ client = genai.Client(
 )
     
     # Display the answer in your chat interface
-response = client.models.generate_content(
-    model="gemini-2.0-flash",
-    contents=user_input
-)
+st.write(response.text)
 
 answer = response.text
 
@@ -225,7 +222,10 @@ for msg in st.session_state.messages:
 prompt = st.chat_input(
     "Ask about organ donation..."
 )
-
+response = client.models.generate_content(
+    model="gemini-2.0-flash",
+    contents=user_input
+)
 if prompt:
 
     # Save user message

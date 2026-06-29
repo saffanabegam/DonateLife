@@ -7,12 +7,6 @@ from website_loader import get_website_content
 # Setup
 # -----------------
 
-load_dotenv()
-
-import os
-from dotenv import load_model  # or load_dotenv depending on your library
-import google.generativeai as genai
-
 # Load the environment variables from the .env file
 load_dotenv() 
 

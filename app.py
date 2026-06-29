@@ -15,12 +15,6 @@ api_key = st.secrets["GEMINI_API_KEY"]
 client = genai.Client(
     api_key=api_key
 )
-    
-    # Display the answer in your chat interface
-st.write(response.text)
-
-answer = response.text
-
 website_data = get_website_content()
 SYSTEM_PROMPT = """
 You are VARDAN AI.
@@ -228,7 +222,8 @@ if prompt:
         contents=prompt
     )
 
-    answer = response.text
+  answer = response.text
+  st.write(answer)
 
     # Save user message
     st.session_state.messages.append(
